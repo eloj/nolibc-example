@@ -3,7 +3,7 @@
 #
 # This file contains the program entry point _start, which sets up
 # and calls into main(), and a library routine mimicking write(2)
-# so that we generate some output in our example program.
+# so that we can generate some output in our example program.
 #
 # For syscall convention, see https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_Linux
 #
@@ -16,7 +16,6 @@
 _start:
 	movq $0, %rbp
 
-	# pop argc
 	pop %rdi		# load argc
 	movq %rsp, %rsi	# load argv
 	lea 8(%rsi, %rdi, 8), %rdx # load envp

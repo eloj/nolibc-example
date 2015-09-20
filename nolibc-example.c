@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[], char *env[])
 {
-	put("Hello, World!\n");
+	ssize_t res = put("Hello, World!\n");
 
 	put("args:\n");
 	for (int i=1 ; i < argc ; ++i) {
@@ -21,6 +21,6 @@ int main(int argc, char *argv[], char *env[])
 		}
 	}
 
-	return 42;
+	return res;
 }
 

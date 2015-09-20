@@ -18,11 +18,11 @@ to the shell.
 ```
 $ env -i AA=1 BB=2 CC=3 ./nolibc-example a b c ; echo ">>status=$?"
 Hello, World!
-args:
+argv:
 a
 b
 c
-envs:
+envp:
 AA=1
 BB=2
 CC=3

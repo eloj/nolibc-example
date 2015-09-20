@@ -2,22 +2,22 @@
 
 #define put(s) write(1, s, sizeof(s)-1);
 
-int main(int argc, char *argv[], char *env[])
+int main(int argc, char *argv[], char *envp[])
 {
 	ssize_t res = put("Hello, World!\n");
 
-	put("args:\n");
+	put("argv:\n");
 	for (int i=1 ; i < argc ; ++i) {
 		write(1, argv[i], 1);
 		put("\n");
 	}
 
-	if (env) {
-		put("envs:\n");
-		while (*env) {
-			write(1, *env, 4);
+	if (envp) {
+		put("envp:\n");
+		while (*envp) {
+			write(1, *envp, 4);
 			put("\n");
-			++env;
+			++envp;
 		}
 	}
 

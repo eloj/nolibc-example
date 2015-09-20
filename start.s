@@ -5,9 +5,11 @@
 # and calls into main(), and a library routine mimicking write(2)
 # so that we can generate some output in our example program.
 #
-# For syscall convention, see https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_Linux
+# See also:
+#	http://wiki.osdev.org/System_V_ABI
+#	https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_Linux
 #
-# From https://github.com/eloj
+# From https://github.com/eloj/nolibc-example/
 #
 .globl _start
 .globl _exit
@@ -20,7 +22,7 @@ _start:
 	movq %rsp, %rsi	# load argv
 	lea 8(%rsi, %rdi, 8), %rdx # load envp
 
-	and $~16, %rsp	# align stack
+	andq $~0x0f, %rsp	# align stack
 
 	# on entry to main, %rdi=argc, %rsi=argv, %rdx=envp
 	call main

@@ -11,6 +11,8 @@
 #
 # From https://github.com/eloj/nolibc-example/
 #
+
+# Exported symbols
 .globl _start
 .globl _exit
 .globl write
@@ -39,3 +41,5 @@ write:
 	movq $0x01, %rax
 	syscall
 	ret
+
+.section .note.GNU-stack

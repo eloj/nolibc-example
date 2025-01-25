@@ -1,4 +1,8 @@
-#include <unistd.h> // piggy-back write(2) declaration.
+// #include <unistd.h> // pull in declarations of write(), ssize_t and size_t
+
+#define size_t unsigned long
+#define ssize_t signed long
+ssize_t write(int fd, const void * buf, size_t count);
 
 #define put(s) write(1, s, sizeof(s)-1);
 
@@ -23,4 +27,3 @@ int main(int argc, char *argv[], char *envp[])
 
 	return res;
 }
-

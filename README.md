@@ -29,3 +29,10 @@ CC=3
 >>status=14
 ```
 
+There are some additional helper Make targets like `dump`, `strip`, `size` and `clean`.
+
+```
+$ make size
+      text       data        bss      total filename
+       330         65          0        395 nolibc-example
+```
